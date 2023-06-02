@@ -4,7 +4,7 @@ import json
 
 
 # Initializing an empty array to store the data
-data = []
+data = {}
 # Specify the file name
 filename = "./JSON/shares.json"
 # Initializing the session
@@ -67,7 +67,7 @@ for item in table.absolute_links:
             "shares-outstanding": shares_outstanding,
             "last-traded-on": last_traded_on,
         }
-        data.append(Info)
+        data[extracted_text] = Info
     else:
         print(f"Name:{name}: ,Sector:{sector},Code:None")
         Info = {
@@ -80,7 +80,7 @@ for item in table.absolute_links:
             "shares-outstanding": shares_outstanding,
             "last-traded-on": last_traded_on,
         }
-        data.append(Info)
+        data[extracted_text] = Info
 
 with open(filename, "w") as file:
     json.dump(data, file)  # Write the list of dictionaries as JSON
