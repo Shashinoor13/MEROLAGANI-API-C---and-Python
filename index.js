@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 json = JSON.parse(fs.readFileSync('./JSON/shares.json', 'utf8'));
 
-app.get('/'|| '/all', (req, res) => {
+app.get('/', (req, res) => {
     res.send(json)
 });
 
